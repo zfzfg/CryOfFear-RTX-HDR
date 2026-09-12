@@ -1,0 +1,37 @@
+==============================================================================
+ CRY OF FEAR: RTX HDR, 1440P & ULTRA-LOW LATENCY MOD (PORTABLE) v1.3
+ By Collin Lerche (zfzfg) | STERRA (https://sterra.online)
+==============================================================================
+
+QUICK INSTALLATION:
+-------------------
+Method 1 (GUI Configurator):
+  1. Double-click "CryOfFearHDRConfig.exe"
+  2. Choose resolution (e.g. 2560x1440), FOV, and latency options.
+  3. Click Install. Confirm UAC for the driver profile.
+  4. If Steam is closed, launch options are written for you. If Steam is
+     running, paste the copied line, or close Steam and click Install again:
+     -fullscreen -w 2560 -h 1440 -noforcemparms -noforcemaccel -noforcemspd
+  5. Turn Windows HDR ON. Auto HDR is already off for cof.exe only.
+  6. Optional: "HDR indicator" shows an on-screen marker while RTX HDR runs.
+
+Method 2 (1-Click Batch):
+  1. Double-click "INSTALL.bat"
+  2. Confirm the UAC prompt (NVIDIA profile import only).
+  3. Paste the printed Steam launch options, then launch Cry of Fear.
+
+VERIFICATION:
+-------------
+Double-click "DIAGNOSE.bat" to verify Windows HDR, Auto HDR override,
+GPU driver settings, and game files.
+
+UNINSTALLATION:
+---------------
+Double-click "UNINSTALL.bat" to restore stock settings.
+Saves are never rolled back.
+
+LICENSE:
+--------
+MIT License - Copyright (c) 2026 Collin Lerche (zfzfg) | STERRA.
+See LICENSE file for full text.
+==============================================================================

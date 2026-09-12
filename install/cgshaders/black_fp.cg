@@ -1,0 +1,70 @@
+// ============================================================================
+//  black_fp.cg  -  HDR-freundliche Variante des Schwarzweiss-/Nightmare-Effekts
+//  Teil des Cry of Fear HDR-Pakets. Siehe HDRmodCOF.md Abschnitt 9.2.
+//
+//  Ablage:  ...\Cry of Fear\cryoffear\cgshaders\black_fp.cg
+//  Original vorher sichern - Install-CofHdr.ps1 -Shader macht das automatisch.
+//
+//  WARUM
+//  Das Original rechnet effektiv:   rgb = 1.2 - 4.0 * (r+g+b)
+//  Das ist eine sehr steile, invertierte Luminanzkurve: alles ab mittlerem
+//  Grau faellt hart auf 0, und der schmale helle Bereich landet sofort bei 1.0.
+//  Unter HDR ist genau das der unguenstigste Fall - ein Tone-Expander zieht
+//  jeden Wert nahe 1.0 auf die Spitzenhelligkeit des Panels. In einer dunklen
+//  Szene ergibt das grelles Aufblitzen, und die harte Kante bandet sichtbar.
+//
+//  Diese Fassung behaelt den Charakter (invertiert, kontraststark), macht den
+//  Uebergang aber flacher und deckelt die Ausgabe unterhalb von Weiss. Der
+//  Effekt bleibt als kuenstlerisches Mittel erhalten - er wird nur nicht mehr
+//  zum Blendgranatenersatz, und man muss ihn nicht per gl_posteffects 0
+//  komplett abschalten.
+//
+//  ABSTIMMEN
+//  SLOPE   niedriger  = weicherer Uebergang, weniger Banding  (Original 4.0)
+//  OFFSET  hoeher     = Effekt greift in helleren Bereichen   (Original 1.2)
+//  CEILING niedriger  = weniger Spitzenhelligkeit unter HDR   (Original 1.0)
+//
+//  Der Shader wird beim Laden kompiliert - Aenderungen brauchen einen
+//  Neustart des Spiels, keinen Buildschritt.
+// ============================================================================
+
+struct FragOut_s
+{
+	float4 flColor : COLOR;
+};
+
+struct VertIn_s
+{
+	float4 flPos : POSITION;
+	float4 flTexCoord0 : TEXCOORD0;
+};
+
+// --- Abstimmung -------------------------------------------------------------
+#define EFFECT_SLOPE   2.6f   // Original entspricht 4.0
+#define EFFECT_OFFSET  1.0f   // Original entspricht 1.2
+#define EFFECT_CEILING 0.75f  // Original: ungedeckelt (1.0)
+
+FragOut_s main( in VertIn_s IN,
+			   uniform sampler2D DecalTex : TEXUNIT0 )
+{
+	FragOut_s OUT;
+
+	float4 flColor = tex2D( DecalTex, IN.flTexCoord0.xy );
+
+	// Summe statt Mittelwert - wie im Original, damit die Helligkeits-
+	// schwelle an derselben Stelle liegt.
+	float flSum = flColor.r + flColor.g + flColor.b;
+
+	// Invertierte Rampe. Flacher als im Original: der Uebergang von Schwarz
+	// nach Weiss verteilt sich ueber einen breiteren Eingangsbereich, was
+	// dem Tone-Expander eine Gradation gibt statt einer Kante.
+	float flEffect = EFFECT_OFFSET - EFFECT_SLOPE * flSum;
+
+	// clamp() vor dem Deckel: erst auf 0..1 begrenzen, dann skalieren.
+	// Damit erreicht die Ausgabe nie Weiss und RTX HDR hat keinen Anlass,
+	// den Effekt auf die Panel-Spitzenhelligkeit zu ziehen.
+	OUT.flColor.rgb = clamp( flEffect, 0.0f, 1.0f ) * EFFECT_CEILING;
+	OUT.flColor.a = 1;
+
+	return OUT;
+}

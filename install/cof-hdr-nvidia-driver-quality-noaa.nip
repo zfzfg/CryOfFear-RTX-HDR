@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-16"?>
+<!--
+  Cry of Fear (HDR) - Safe Quality Profile (no driver MSAA)
+  Includes RTX HDR Route 3B (Driver profile) + 16x Anisotropic Filtering,
+  High Quality Texture Filtering, Negative LOD Bias Clamp.
+  MSAA and Transparency Supersampling are explicitly OFF to prevent engine crashes.
+
+  Import with:
+  nvidiaProfileInspector.exe -silentImport <this file>
+-->
+<ArrayOfProfile>
+  <Profile>
+    <ProfileName>Cry of Fear (HDR)</ProfileName>
+    <Executeables>
+      <string>cof.exe</string>
+    </Executeables>
+    <Settings>
+      <!-- 0x00432F84 RTX HDR Driver Flags = 2 (VeryHigh debanding) -->
+      <ProfileSetting>
+        <SettingNameInfo />
+        <SettingID>4403076</SettingID>
+        <SettingValue>2</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <!-- 0x00980896 Toggle to Enable/Disable Game Filters = 1 -->
+      <ProfileSetting>
+        <SettingNameInfo>Toggle to Enable/Disable Game Filters</SettingNameInfo>
+        <SettingID>9963670</SettingID>
+        <SettingValue>1</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <!-- 0x00DD48FB Enable TrueHDR Feature = 1 -->
+      <ProfileSetting>
+        <SettingNameInfo>Enable TrueHDR Feature</SettingNameInfo>
+        <SettingID>14502139</SettingID>
+        <SettingValue>1</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <!-- 0x1077A11A Undocumented TrueHDR setting = 1 -->
+      <ProfileSetting>
+        <SettingNameInfo />
+        <SettingID>276275482</SettingID>
+        <SettingValue>1</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <!-- 0x20D690F8 Vulkan/OpenGL present method = 1 (layered on DXGI swapchain) -->
+      <ProfileSetting>
+        <SettingNameInfo>Vulkan/OpenGL present method</SettingNameInfo>
+        <SettingID>550932728</SettingID>
+        <SettingValue>1</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <!-- 0x10D2BB16 Anisotropic filtering mode = 1 (User-defined) -->
+      <ProfileSetting>
+        <SettingNameInfo>Anisotropic filtering mode</SettingNameInfo>
+        <SettingID>282245910</SettingID>
+        <SettingValue>1</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <!-- 0x101E61A9 Anisotropic filtering setting = 16 (16x) -->
+      <ProfileSetting>
+        <SettingNameInfo>Anisotropic filtering setting</SettingNameInfo>
+        <SettingID>270426537</SettingID>
+        <SettingValue>16</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <!-- 0x00CE2691 Texture filtering - Quality = 20 (High quality) -->
+      <ProfileSetting>
+        <SettingNameInfo>Texture filtering - Quality</SettingNameInfo>
+        <SettingID>13510289</SettingID>
+        <SettingValue>20</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <!-- 0x002ECAF2 Texture filtering - Trilinear optimization = 1 (Off) -->
+      <ProfileSetting>
+        <SettingNameInfo>Texture filtering - Trilinear optimization</SettingNameInfo>
+        <SettingID>3066610</SettingID>
+        <SettingValue>1</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <!-- 0x0084CD70 Texture filtering - Anisotropic filter optimization = 0 (Off) -->
+      <ProfileSetting>
+        <SettingNameInfo>Texture filtering - Anisotropic filter optimization</SettingNameInfo>
+        <SettingID>8703344</SettingID>
+        <SettingValue>0</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <!-- 0x00E73211 Texture filtering - Anisotropic sample optimization = 0 (Off) -->
+      <ProfileSetting>
+        <SettingNameInfo>Texture filtering - Anisotropic sample optimization</SettingNameInfo>
+        <SettingID>15151633</SettingID>
+        <SettingValue>0</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <!-- 0x0019BB68 Texture filtering - Negative LOD bias = 1 (Clamp) -->
+      <ProfileSetting>
+        <SettingNameInfo>Texture filtering - Negative LOD bias</SettingNameInfo>
+        <SettingID>1686376</SettingID>
+        <SettingValue>1</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <!-- 0x007BA09E Maximum pre-rendered frames = 1 -->
+      <ProfileSetting>
+        <SettingNameInfo>Maximum pre-rendered frames</SettingNameInfo>
+        <SettingID>8102046</SettingID>
+        <SettingValue>1</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <!-- 0x107EFC5B Antialiasing - Mode = 0 (Application-controlled / Off) -->
+      <ProfileSetting>
+        <SettingNameInfo>Antialiasing - Mode</SettingNameInfo>
+        <SettingID>276757595</SettingID>
+        <SettingValue>0</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <!-- 0x10D773D2 Antialiasing - Setting = 0 (Off) -->
+      <ProfileSetting>
+        <SettingNameInfo>Antialiasing - Setting</SettingNameInfo>
+        <SettingID>282555346</SettingID>
+        <SettingValue>0</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+      <!-- 0x10D48A85 Antialiasing - Transparency Supersampling = 0 (Off) -->
+      <ProfileSetting>
+        <SettingNameInfo>Antialiasing - Transparency Supersampling</SettingNameInfo>
+        <SettingID>282364549</SettingID>
+        <SettingValue>0</SettingValue>
+        <ValueType>Dword</ValueType>
+      </ProfileSetting>
+    </Settings>
+    <ExecutableFindFiles />
+  </Profile>
+</ArrayOfProfile>
