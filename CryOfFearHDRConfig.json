@@ -1,0 +1,14 @@
+{
+  "GamePath": "c:/program files (x86)/steam\\steamapps\\common\\Cry of Fear",
+  "Width": 2560,
+  "Height": 1440,
+  "IsCustom": false,
+  "IsDesktop": true,
+  "Windowed": false,
+  "Fov": 1.11,
+  "RawMouse": true,
+  "LowLatencyVsync": true,
+  "EngineRates": true,
+  "RtxHdr": true,
+  "SoftenedShader": false
+}

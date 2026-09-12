@@ -1,0 +1,26 @@
+struct FragOut_s
+{
+	float4 flColor : COLOR;
+};
+
+struct VertIn_s
+{
+	float4 flPos : POSITION;
+	float4 flTexCoord0 : TEXCOORD0;
+};
+
+FragOut_s main( in VertIn_s IN, 
+			   uniform sampler2D DecalTex : TEXUNIT0 )
+{
+	FragOut_s OUT;
+
+	float4 flColor = tex2D( DecalTex, IN.flTexCoord0.xy );
+
+	float flColor1 = ( ( flColor.r + flColor.g + flColor.b )/ 0.5f );
+	flColor1 = 2.0f * (flColor1 - .5f);//expand( flColor1 );
+	//flColor1 = flColor1/.001f;
+	OUT.flColor.rgb = 0.2f - flColor1;
+	OUT.flColor.a = 1;//OUT.flColor.rgb - 1;
+	
+	return OUT;
+}
