@@ -18,3 +18,8 @@ $RECYCLE.BIN/
 *.log
 *.tmp
 *.bak
+
+# Distribution packages
+dist/
+*.zip
+

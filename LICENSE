@@ -26,13 +26,12 @@ SOFTWARE.
 Scope note
 ==========
 
-This licence covers only the files in this repository: the configuration files,
-NVIDIA profiles, PowerShell scripts, the modified Cg shader source, and the
-documentation.
+This licence covers only the files in this package: configuration, NVIDIA
+profiles, PowerShell scripts, the modified Cg shader source, the configurator
+source, and the documentation.
 
 It does NOT cover, and this package does not redistribute, any part of Cry of
-Fear or of the GoldSrc engine. Cry of Fear is the property of Team Psykskallar;
-GoldSrc is Valve's. Users must own the game. Nothing here replaces a game
-binary; `install/cgshaders/black_fp.cg` is a derivative edit of a shader
+Fear or of the GoldSrc engine. Users must own the game. Nothing here replaces
+a game binary; `files/cgshaders/black_fp.cg` is a derivative edit of a shader
 shipped with the game and is provided as a source file for users to apply to
-their own copy, never as a redistribution of game content.
+their own copy.
