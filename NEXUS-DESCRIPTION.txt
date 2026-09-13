@@ -1,0 +1,105 @@
+[center][size=5][b]Cry of Fear: RTX HDR, 1440p & Ultra-Low Latency[/b][/size]
+[size=3]Portable Edition v1.3.0[/size]
+
+by Collin Lerche (zfzfg) | [url=https://sterra.online]STERRA[/url]
+License: MIT[/center]
+
+[line]
+
+This installer upgrades [b]your[/b] Steam copy of Cry of Fear: true HDR, a modern resolution, snappier input, and sharper textures — without the anti-aliasing settings that crash this engine.
+
+Keep the whole folder together. [b]CryOfFearHDRConfig.exe[/b] is only the menu. It will not work if you copy that one file out of the zip.
+
+[heading]What you get[/heading]
+
+[list]
+[*][b]NVIDIA RTX HDR[/b] — driver-level HDR with strong debanding. You do not need the NVIDIA App or overlay sliders.
+[*][b]Fullscreen at 2560×1440, 4K, or a custom size[/b] — written into Steam launch options. This build of the game has no borderless-window flag, so fullscreen is the supported path.
+[*][b]Lower input lag[/b] — mouse smoothing and V-Sync buffering are turned off ([b]m_filter 0[/b], [b]gl_vsync 0[/b]), and the engine update rate is raised ([b]cl_updaterate 101[/b], [b]cl_cmdrate 101[/b], [b]rate 100000[/b]).
+[*][b]Wider FOV[/b] — [b]cl_fovmultiplier[/b] for 16:9 and 16:10.
+[*][b]A crash-safe quality profile on your NVIDIA driver[/b] — 16× high-quality anisotropic filtering, negative LOD bias clamped, High Quality texture filtering. [b]MSAA is forced off[/b] (forced AA crashes Cry of Fear — do not turn it back on).
+[*][b]Auto HDR off for this game only[/b] — so Windows Auto HDR cannot stack with RTX HDR. Your other games stay as they are.
+[*][b]Optional softer nightmare look[/b] — replaces the stock [b]black_fp.cg[/b] vignette if you tick that box.
+[/list]
+
+Your saves are never reverted.
+
+[line]
+
+[heading]What you need[/heading]
+
+[list]
+[*]Windows 10 (build 19041+) or Windows 11
+[*]An HDR monitor, with [b]Windows HDR turned on[/b]
+[*]An NVIDIA GeForce RTX 20-series or newer (driver [b]551.23[/b] or newer)
+[*]Cry of Fear installed through Steam
+[/list]
+
+[line]
+
+[heading]Install[/heading]
+
+[b]Option 1 — GUI (recommended)[/b]
+
+[list=1]
+[*]Extract the [b]entire[/b] zip. Leave every file in that folder.
+[*]Double-click [b]CryOfFearHDRConfig.exe[/b].
+[*]Check the header chips: game path, Windows HDR, Auto HDR for Cry of Fear. Browse to [b]cof.exe[/b] if the path is empty.
+[*]Pick your resolution (desktop native, a listed mode, or custom), FOV, and latency options. Steam launch options update as you change them — use [b]Copy[/b] if you need the line.
+[*]Click [b]Install[/b]. Accept the UAC prompt so the NVIDIA profile can be imported.
+[*]If Steam is [b]closed[/b], launch options are written for you. If Steam is [b]open[/b], they are only copied — paste them under Steam → Cry of Fear → Properties → Launch Options, or close Steam and click Install again:
+[/list]
+
+[code]-fullscreen -w 2560 -h 1440 -noforcemparms -noforcemaccel -noforcemspd[/code]
+
+[list=1]
+[*]Turn [b]Windows HDR on[/b] ([b]Win + Alt + B[/b], or [b]HDR settings[/b] in the header). Auto HDR for this game is already disabled.
+[*]Start Cry of Fear from Steam.
+[/list]
+
+To confirm RTX HDR: click [b]HDR indicator[/b], launch the game, and look for the on-screen marker. Click [b]Install[/b] afterwards to hide it again.
+
+[b]Option 2 — batch files[/b]
+
+[list]
+[*][b]INSTALL.bat[/b] — finds Steam, merges your config, sets DPI, disables Auto HDR for [b]cof.exe[/b], imports the driver profile. Accept UAC.
+[*][b]DIAGNOSE.bat[/b] — checks Windows HDR, the Auto HDR override, GPU settings, and game files.
+[*][b]UNINSTALL.bat[/b] — puts shaders, config, and the driver profile back. [b]Your saves are not touched.[/b]
+[/list]
+
+[line]
+
+[heading]If something looks wrong[/heading]
+
+[b]The game starts in 1080p[/b]
+Close Steam completely and click [b]Install[/b] again, or paste this into launch options:
+
+[code]-fullscreen -w 2560 -h 1440 -noforcemparms -noforcemaccel -noforcemspd[/code]
+
+[b]Windows HDR is off[/b]
+[b]DIAGNOSE.bat[/b] will report [b][FAIL][/b]. RTX HDR cannot output HDR until you turn Windows HDR on. The installer will not flip that switch for you.
+
+[b]Washed-out greys / two different tone maps[/b]
+Auto HDR is still running on Cry of Fear. Run Install again — it turns Auto HDR off for [b]cof.exe[/b] only.
+
+[b]Menu text looks huge or cut off[/b]
+That is not this mod. Stock menu fonts are left alone so inventory and keybind dialogs stay readable at any resolution.
+
+[b]You are not sure RTX HDR is on[/b]
+Click [b]HDR indicator[/b], launch the game, look for the marker, then click [b]Install[/b] to go back to the normal quality profile. [b]DIAGNOSE.bat[/b] also reads Windows HDR and the [b]Cry of Fear (HDR)[/b] driver settings.
+
+[line]
+
+[heading]Uninstall[/heading]
+
+Double-click [b]UNINSTALL.bat[/b], or use [b]Revert[/b] in the GUI. Shaders, config, and the NVIDIA profile go back to stock. Your saves stay where they are.
+
+[line]
+
+[heading]License[/heading]
+
+MIT License. You may use, modify, and share this package.
+
+This download does [b]not[/b] include Cry of Fear or GoldSrc. You must already own the game. The optional nightmare shader is applied to [b]your[/b] copy.
+
+Copyright (c) 2026 Collin Lerche (zfzfg) | [url=https://sterra.online]STERRA[/url]
